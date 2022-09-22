@@ -5,17 +5,19 @@
 <link rel="stylesheet" href="trackercss.css">
 </head>
 <body>
+<script src="trackerjs.js"></script>
 <div class="bg-img">
-  <form action="/action_page.php" class="container">
+  <form  class="container">
     <h1>Login</h1>
-
+    <h2 id="givenus"></h2>
+    <h2 id="givenps"></h2>
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="text" placeholder="Enter Email" name="email" id="username" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" id="pass" required>
 
-    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn" onclick="getData()">Login</button>
   </form>
 </div>
 </body>
