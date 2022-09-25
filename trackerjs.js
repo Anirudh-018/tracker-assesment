@@ -4,13 +4,14 @@ fetch('https://randomuser.me/api/?results=10')
             //local storege
             window.localStorage.setItem('details',JSON.stringify(data.results));
             items=JSON.parse(localStorage.getItem('details'));
-            console.log(items[0].login.username)
-            console.log(items[0].login.password)
-            console.log(items);
+            console.log(items[0].login.username);
+            console.log(items[0].login.password);
         });
+
 function getData() {
     //Get API
     items=JSON.parse(localStorage.getItem('details'));
+    //console.log(items[0])
             var us=document.getElementById("username").value;
             var pas=document.getElementById("pass").value;
             var username=[];
@@ -31,12 +32,13 @@ function getData() {
             }
         }
 function display(){
+    let i=0
     items=JSON.parse(localStorage.getItem('details'));
     let output = "<h2><center>Get User Data</center></h2>";
     items.forEach(function (lists) {
         let sal=100000;
         output += `
-        <div class="container alert alert-success col-sm-3" >
+        <a href="person${i+1}.html" value=i id='anch'><div class="container alert alert-success col-sm-3" >
             <div class="card" style="width:300px">
                 <img class="card-img-top" src="${lists.picture.large}" alt="Card image">
                 <div class="card-body">
@@ -45,10 +47,15 @@ function display(){
                     <h5 class="card-text">${lists.location.country}</h5>
                     <h5 class="card-text">${sal}</h5>
                 </div>
-            </div>
+            </a></div>
         </div> `;
+        i++;
     });
     document.getElementById('output').innerHTML = output;
 }
 display()
+function per(){
+    items=JSON.parse(localStorage.getItem('details'));
+    
+}
 
